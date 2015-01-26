@@ -62,7 +62,7 @@ class TestRunTimeCreationClass(TestCase):
         self.assertTrue(get_model("test.NewDynamicType") is None)
         
         attributes = {}
-        clazz = get_class("persistent.fields.CharField")
+        clazz = get_class("django_documents.fields.CharField")
         attributes['__module__'] = "test"
         attributes['text'] = clazz()
         

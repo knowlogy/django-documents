@@ -99,7 +99,7 @@ class ValidationOfListOfChilds(TestCase):
             self.fail("expected  a object validation error")
         except ObjectValidationError:
             pass
-            from persistent.serializer import JsonSerializer
+            from django_documents.serializer import JsonSerializer
             print JsonSerializer().serialize(toValidateListOfChilds)
         
     def test_incorrect_empty_list_minlength(self):
@@ -111,7 +111,7 @@ class ValidationOfListOfChilds(TestCase):
             self.fail("expected  a object validation error")
         except ObjectValidationError:
             pass
-            from persistent.serializer import JsonSerializer
+            from django_documents.serializer import JsonSerializer
             print JsonSerializer().serialize(toValidateListOfChilds)
         
 
@@ -167,7 +167,7 @@ class ListValidationTestCase(TestCase):
             toValidateList.full_clean()
             self.fail("expected exception")
         except ObjectValidationError, ove:
-            from persistent.serializer import JsonSerializer
+            from django_documents.serializer import JsonSerializer
             print "Errors: %s" % ove
             print JsonSerializer().serialize(toValidateList)
             self.assertTrue('language_codes' in toValidateList._errors)

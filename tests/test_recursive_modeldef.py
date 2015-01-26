@@ -61,8 +61,8 @@ class TestRecursiveDefinitionOneOf(TestCase):
         
     def test_describe(self):
         import simplejson as json
-        print json.dumps(Mymodel._meta.describe())
-        print json.dumps(Mymodel._meta.describe())
+        print json.dumps(Mymodel._meta.describe(recursive=True))
+        
       
         
 if __name__ == '__main__':
