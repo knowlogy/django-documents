@@ -1,2 +1,26 @@
-# django-documents
-Build document like django models
+Django Documents
+================
+
+Model documents like django models.
+
+
+The django_documents package provides in functionality to create documents as python classes, validate them and serialize them to xml, json or python dictonaries.
+
+----
+from django_documents.documents import Document
+from django_documents import fields 
+
+COUNTRY_CHOICES = {'nl': {'nl': "Nederlands", 'de': "Niederlanden"},'de': {'nl': "Duitsland", 'de': "Deutschland"}
+
+class Address(Document):
+    street = fields.CharField(max_length  = 100)
+    zip_code = fields.CharField(max_length  = 10)
+    locality_name = fields.CharField(max_length  = 30)
+    country = fields.CharField(max_length  = 30, CHOICES = COUNTRY_CHOICES)
+
+class CustomerDocument(Document):
+    name = fields.CharField(max_length = 40)
+    home_address = related.OneOf(Address)
+
+----
+
